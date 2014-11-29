@@ -1,3 +1,5 @@
+'use strict';
+
 function ThrottlingExecutor(concurrentTaskCount,  hasMoreTasks) {
 	// hasMoreTasks is executed after each task that completes
 	// if true it spans more tasks until the limit is reached
