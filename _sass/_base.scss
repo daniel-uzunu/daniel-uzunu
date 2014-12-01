@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: $spacing-unit / 4;
 }
 
 
@@ -112,7 +112,7 @@ blockquote {
     border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
-    letter-spacing: -1px;
+    /*letter-spacing: -1px;*/
     font-style: italic;
 
     > :last-child {
@@ -128,9 +128,9 @@ blockquote {
 pre,
 code {
     font-size: 14px;
-    border: 1px solid #cecece;
+    border: 1px solid #ddd;
     border-radius: 3px;
-    background-color: #fafafa;
+    background-color: #fdfdfd;
     font-family: Monaco,"DejaVu Sans Mono","Courier New",monospace;
 }
 
@@ -140,7 +140,7 @@ code {
 
 pre {
     padding: 8px 12px;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     > code {
         border: 0;
