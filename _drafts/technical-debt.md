@@ -97,6 +97,7 @@ Steve McConnell - [Technical Debt]
 1. Steve McConnell - [Technical Debt]
 1. Martin Fowler - [Cannot Measure Productivity]
 1. Steve Garnet - [Technical Debt: Strategies & Tactics for Avoiding & Removing it][Garnett Technical Debt]
+1. Henrik Kniberg - [Good and Bad Technical Debt]
 
 [1]: http://c2.com/doc/oopsla92.html "The WyCash Portfolio Management System"
 [2]: http://c2.com/cgi/wiki?WardExplainsDebtMetaphor "Ward Explains Debt Metaphor"
@@ -107,3 +108,4 @@ Steve McConnell - [Technical Debt]
 [Technical Debt]: http://www.construx.com/10x_Software_Development/Technical_Debt
 [Cannot Measure Productivity]: http://martinfowler.com/bliki/CannotMeasureProductivity.html
 [Garnett Technical Debt]: http://blogs.ripple-rock.com/SteveGarnett/2013/03/05/TechnicalDebtStrategiesTacticsForAvoidingRemovingIt.aspx
+[Good and Bad Technical Debt]: http://blog.crisp.se/2013/10/11/henrikkniberg/good-and-bad-technical-debt
