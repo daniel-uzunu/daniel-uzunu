@@ -3,7 +3,7 @@ title: Daniel Uzunu
 email: daniel dot uzunu at gmail dot com
 description: > # this means to ignore newlines until "baseurl:"
   This blog is mainly about programming, about the technologies I'm interested in
-  and about my vision on software development. However I will occasionally write 
+  and about my vision on software development. However I will occasionally write
   about more general topics.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://danieluzunu.com" # the base hostname & protocol for your site
@@ -13,3 +13,5 @@ excerpt_separator: <!--more-->
 
 # Build settings
 markdown: kramdown
+
+permalink: /:year/:month/:day/:title/

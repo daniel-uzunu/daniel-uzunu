@@ -1,111 +1,103 @@
 ---
-layout: post
-title:  "Technical Debt"
-date:   2014-11-29 12:41:34
-categories: Software Development
+layout:      post
+title:       "Technical Debt"
+date:        2014-11-29 12:41:34
+categories:  software-development
+tags:
+- software development
+- technical debt
 ---
-The primary reason to write code is to build executable programs. However, software systems need to be enhanced and maintained, which leads to a continuously evolving codebase. In this context, writing code which is easy to understand and change becomes as important as writing code that works correctly and fulfill its users needs. The code must reflect our current understanding of the problem,  it should ... Otherwise, the mismatch between the concepts which are present in the codebase and our current understanding of the problem space will slow us down. We will have a hard time trying to integrate new features into a codebase that is not reflecting the things we learned since we originally wrote the code. This mismatch appears because we don't have a complete understanding of the problem when we write the code and this is fine. It is better to have working software based on partial understanding and learn by observing the software being used than trying to get a complete understanding of the problem before writing code (agile vs waterfall). However, it is important to incorporate this learning back into the codebase. Otherwise, implementing new features without refactoring the code will slow us down more and more until it will become prohibitively expensive to incorporate any new feature. **I should also include the technical debt term into the introduction.**
+It is not easy to explain to non-technical people why design is important. They want to see the features implemented while minimizing the amount of time and money allocated for building the system. Technical debt is a useful concept in these situations as it is easy to understand by both technical and non-technical persons. In this article I will explain what technical debt is, when it is wise to incur technical debt and I will present a few strategies for managing and reducing it.
 <!--more-->
 
-The *technical debt* metaphor was coined by Ward Cunningham in 1992 to illustrate the effects of *not-quite-right* code using a financial analogy<sup>[[1]][1]</sup>. This metaphor is successful because most people understand the benefits of debt and they also understand the repercussions. You can buy something sooner using borrowed money and increase your buying power, but until you pay those money back you are paying interest. If you continue to take debt without paying it back, more and more of your income will be used to pay the interest until your purchasing power goes to zero. The same things is happening with software, *if you develop a program for a long period of time by only adding features and never reorganizing it to reflect your understanding of those features, then eventually that program simply does not contain any understanding and all efforts to work on it take longer and longer. In other words, the interest is total -- you'll make zero progress.*<sup>[[2]][2]</sup>
+The technical debt metaphor was coined by Ward Cunningham in an [Experience Report for OOPSLA 1992][The WyCash Portfolio Management System] to illustrate the effects of *not-quite-right* code using a financial analogy. This metaphor is successful because most people understand the benefits of debt and they also understand the repercussions. You can buy something sooner using borrowed money and increase your buying power, but until you pay those money back you are paying interest. If you continue to take debt without paying it back, more and more of your income will be used to pay the interest until your purchasing power goes to zero. The same things is happening with software,
 
-This analogy can be extended to include multiple types of less than optimal code, but there also comes the question of when it is useful to use this metaphor. I don't consider it useful for cases where both managers and developers don't care about quality. However, it becomes useful when the team developing this code or another team wants to clean it up. In this moment, the team realizes that the amount of technical debt is huge, but they still see value in the product. Complete rewrites are rarely a good option, so the wisest thing to do would be to **inventory** the debt and pay it back a little at a time. **There's also the question: is it possible to pay the debt in these cases?**
+> if you develop a program for a long period of time by only adding features and never reorganizing it to reflect your understanding of those features, then eventually that program simply does not contain any understanding and all efforts to work on it take longer and longer. In other words, the interest is total -- you'll make zero progress. ([Ward Explains Debt Metaphor])
 
-Ward Cunningham considers that technical debt arises as a result of writing code to solve a problem that you don't completely understand. He doesn't see it as an excuse to write code poorly with the intention of cleaning it up later. *You know, if you want to be able to go into debt that way by developing software that you don't completely understand, you are wise to make that software reflect your understanding as best as you can, so that when it does come time to refactor, it's clear what you were thinking when you wrote it, making it easier to refactor it into what your current thinking is now.*<sup>[[2]][2]</sup> This kind of thinking is at the heart of agile software development - the software is developed incrementally without having a complete understanding of the problem when you start coding.
+Ward Cunningham considers that the main source of debt is writing code to solve a problem that you don't completely understand. He doesn't see it as an excuse to write code poorly with the intention of cleaning it up later, arguing that you should write code that reflects that understanding as best as you can, in order to be able to refactor it later (it's very hard to refactor a piece of code when it is not clear which were the intentions of the person writing it). This kind of thinking is at the heart of agile software development - the software is developed incrementally without having a complete understanding of the problem when you start coding.
 
-Uncle Bob - [A Mess is not a Technical Debt]
+Technical debt is anything that slows you down (following the metaphor, this means anything that makes you pay interest). Some examples:
 
-> A mess is not a technical debt. A mess is just a mess. Technical debt decisions are made based on real project constraints. They are risky, but they can be beneficial. The decision to make a mess is never rational, is always based on laziness and unprofessionalism, and has no chance of paying of in the future. A mess is always a loss.
+- Unclear, unreadable code.
+- Duplicate code.
+- Unit or integration tests that don't make you feel confident that the system still works after refactoring it.
+- Not automating tasks that are performed multiple times and can be automated.
+- Tangled architecture & unnecessarily complex dependencies.
+- Important technical documentation that is missing or out-of-date.
+- Unnecessary technical documentation that is being maintained and kept up-to-date.
+- Lack of test environments.
+- Long build-test cycle & lack of continuous integration.
 
-> When you decide to take on a technical debt, you had better make sure that your code stays squeaky clean. Keeping the system clean is the only way you will pay down that debt.
+## Types of Technical Debt
 
-Martin Fowler - [Technical Debt Quadrant]
+An important question is what to classify as being technical debt. Some people, like Uncle Bob are stating that [A Mess is not a Technical Debt]. While his concerns are valid and making a mess is never a good decision, I think that the more important question is when it is useful to use the technical debt metaphor. There are situations in which a team is given the task to further develop a system for which good design practices were ignored. For example, the system was bought and you later discovered the bad shape in which the code was. The interest payments are very high and it would take very much time to pay back the principal, but this metaphor is also a good fit for this scenario as it explains why it is taking a very long time to implement new features. **(!)**
 
-> To my mind, the question of whether a design flaw is or isn't debt is the wrong question. Technical Debt is a metaphor, so the real question is whether or not the debt metaphor is helpful about thinking about how to deal with design problems, and how to communicate that thinking. A particular benefit of the debt metaphor is that it's very handy for communicating to non-technical people.
->
-> I think that the debt metaphor works well in both cases - the difference is in nature of the debt. A mess is a reckless debt which results in crippling interest payments or a long period of paying down the principal. We have a few projects where we've taken over a code base with a high debt and found the metaphor very useful in discussing with client management how to deal with it.
-
-> Reckless debt may not be inadvertent. A team may know about good design practices, even be capable of practicing them, but decide to go "quick and dirty" because they think they can't afford the time required to write clean code. I agree with Uncle Bob that this is usually a reckless debt, because people underestimate where the DesignPayoffLine is. The whole point of good design and clean code is to make you go faster - if it didn't people like Uncle Bob, Kent Beck, and Ward Cunningham wouldn't be spending time talking about it.
->
-> Dividing debt into reckless/prudent and deliberate/inadvertent implies a quadrant, and I've only discussed three cells. So is there such a thing as prudent-inadvertent debt? Although such a thing sounds odd, I believe that it is - and it's not just common but inevitable for teams that are excellent designers.
->
-> I was chatting with a colleague recently about a project he'd just rolled off from. The project that delivered valuable software, the client was happy, and the code was clean. But he wasn't happy with the code. He felt the team had done a good job, but now they realize what the design ought to have been.
+A good model I have found is Martin Fowler's [Technical Debt Quadrant]. He divides debt using two axes: reckless - prudent and deliberate - inadvertent.
 
 ![Technical Debt Quadrant](http://martinfowler.com/bliki/images/techDebtQuadrant.png)
 
-Steve McConnell - [Technical Debt]
+**Deliberate reckless debt** appears when a team knows about design practices, but chooses to ignore them as they think there is no time for applying good design practices to the project. The problem with this approach is that the amount of interest being paid is usually underestimated. As a result, you end up spending more time on the project if you don't deliver before hitting the [Design Payoff Line]. After all, this is the whole point of design, to make you go faster and to be able to keep the pace while the project grows bigger and bigger. Bad code will always slow you down even if you might get some advantages for a short period of time.
 
-> Debt
->
-> I. Debt incurred unintentionally due to low quality work
->
-> II. Debt incurred intentionally
->
-> II.A. Short-term debt, usually incurred reactively, for tactical reasons
->
-> II.A.1. Individually identifiable shortcuts (like a car loan)
->
-> II.A.2. Numerous tiny shortcuts (like credit card debt)
->
-> II.B. Long-term debt, usually incurred proactively, for strategic reasons
+**Inadvertent reckless debt** is the result of having only junior developers work on a project. They might have the best intentions, but they simply don't have the knowledge required to build large systems. Some companies are thinking they can do the work by hiring only junior developers. The truth is that you need at least one senior developer in every team.
 
-> You're acquiring an asset (the released software) for less than it's full price. Thus you're financing the gap between what you paid (actual dev cost) vs. the full price (what the dev cost would have been without the shortcuts). That gap is the technical debt.
+**Deliberate prudent debt** is the kind of debt that is incurred for strategic reasons. You know the total effort will be bigger as you pay interest and you will need to pay the principal, but the advantages you gain by releasing sooner outweigh the extra effort. You need to track this debt and pay it back immediately after the release in order to stop paying the interest. It is important to keep debt as low as possible in order to be able to take this kind of debt when it is required.
 
-> When technical debt is incurred for strategic reasons, the fundamental reason is always that the cost of development work today is seen as more expensive than the cost will be in the future. This can be true for any of several reasons.
->
-> Time to Market. When time to market is critical, incurring an extra $1 in development might equate to a loss of $10 in revenue. Even if the development cost for the same work rises to $5 later, incurring the $1 debt now is a good business decision.
->
-> Preservation of Startup Capital. In a startup environment you have a fixed amount of seed money, and every dollar counts. If you can delay an expense for a year or two you can pay for that expense out of a greater amount of money later rather than out of precious startup funds now.
->
-> Delaying Development Expense. When a system is retired, all of the system's technical debt is retired with it. Once a system has been taken out of production, there's no difference between a "clean and correct" solution and a "quick and dirty" solution. Unlike financial debt, when a system is retired all its technical debt is retired with it. Consequently near the end of a system's service life it becomes increasingly difficult to cost-justify investing in anything other than what's most expedient.
+Examples of situations in which this might be a good decision are: releasing some new features or a new product before the competition does, convincing a client to sign a contract by implementing the required features in a shorter time and any other situation in which releasing sooner will benefit the company.
 
-> One organization we've worked with maintains a debt list within its defect tracking system. Each time a debt is incurred, the tasks needed to pay off that debt are entered into the system along with an estimated effort and schedule. The debt backlog is then tracked, and any unresolved debt more than 90 days old is treated as critical.
->
-> Another organization maintains its debt list as part of its Scrum product backlog, with similar estimates of effort required to pay off each debt.
->
-> Either of these approaches can be used to increase visibility into the debt load and into the debt service work that needs to occur within or across release cycles. Each also provides a useful safeguard against accumulating the "credit card debt" of a mountain of tiny shortcuts mentioned earlier. You can simply tell the team, "If the shortcut you are considering taking is too minor to add to the debt-service defect list/product backlog, then it's too minor to make a difference; don't take that shortcut. We only want to take shortcuts that we can track and repair later."
+When this kind of decision is taken, everyone involved must understand the consequences of this decision. Make sure everyone agrees that the debt must be pay back. You must be sure that the reasons to take the debt are real. If the only reason is that your boss wants to look good in the eyes of his boss by releasing sooner, you will only spend more time without gaining any real advantage.
 
-**Debt can also arise when you write software using a technology that you are still learning. "I  wish I knew this one year ago when I wrote this piece of code."**
+**Inadvertent prudent debt** is a weird concept. However, it is happening all the time. Only think about the last time you realized that a better design was possible after the work was done. It is impossible to prevent this kind of debt from appearing and I think that the costs would be very high if we try to eliminate it (this can easily result in [Analysis paralysis]). A better answer would be to accept it and refactor the code when you realize that a better solution exists.
 
-**Martin Fowler, Uncle Bob opinions.**
+## Strategies for Avoiding Bad Technical Debt (?)
 
-## Some points I want to cover in this article:
+As indicated above, some kinds of debt should be avoided. It can be the result of taking numerous small shortcuts while writing the code or of the pressure you feel and makes you think there is no time for cleaning up the code. There are times when this pressure comes from ourselves, the cause being that the amount of work needed to finish a task was underestimated.
 
-- what is technical debt and which is my view on technical debt? There are a few subtleties in what different people understand by technical debt. I need to choose what I want to include under the technical debt umbrella.
-- types of debt; is it useful to distinguish between types of debt like code debt, documentation debt, test debt... ?
-- causes of technical debt; when is it useful to deliberately take debt? how much debt should we take? design payoff line
-- measuring technical debt and the interest that is paid for this debt
-- how to reduce the technical debt? create special stories to pay debt or include them in stories that touch the part of the code affected by debt
+As the debt accumulates, the code starts to look messy and even more debt will be added if you don't take any measures. This is the result of a phenomenon known as [Broken Windows Theory].
 
-## Some Ideas
+> Consider a building with a few broken windows. If the windows are not repaired, the tendency is for vandals to break a few more windows. Eventually, they may even break into the building, and if it's unoccupied, perhaps become squatters or light fires inside.
 
-- Make the debt visible ([http://c2.com/cgi/wiki?TechnicalDebt](http://c2.com/cgi/wiki?TechnicalDebt))
-- How much debt it is wise to take? See [Design Stamina Hypothesis]
-- How to keep track of the debt you accumulated and the interest you are paying for it?
-- How and when to pay the debt back?
-- The savvy developer treats technical debt just as the entrepreneur does financial debt. They use it. It speeds delivery, so long as it is properly managed. (same as above)
-- the technical debt metaphor is useful as a communication tool between developers or between developers and non technical managers. In the later case, both parts understand better the perspective of the other part.
+There are two kind of measures that we can take in order to keep technical debt at a comfortable level:
 
-## References
+- **Proactive measures**. The first thing that we need to do is to ask ourselves what we can do to minimize the amount of technical debt that we produce. Retrospectives are a great tool for this. Some of the things that are usually working are: code reviews, pair programming, refining the Definition of Done to ensure that the gap between sprint results and ready for production code is minimal.
+- **Reactive measures**. We can't eliminate all the debt. As a result, we need to track the accumulated debt and dedicate more time to clean up when the debt level is above what we define as safe. A good strategy for tracking debt is to add it as stories in the product backlog and estimate them.
 
-1. [Ward Cunningham - *The WyCash Portfolio Management System*][1]
-1. [Ward Cunningham - *Ward Explains Debt Metaphor*][2]
-1. [Martin Fowler - *Technical Debt*][3]
-1. Martin Fowler - [Technical Debt Quadrant]
-1. Martin Fowler - [Design Stamina Hypothesis]
-1. Uncle Bob - [A Mess is not a Technical Debt]
-1. Steve McConnell - [Technical Debt]
-1. Martin Fowler - [Cannot Measure Productivity]
-1. Steve Garnet - [Technical Debt: Strategies & Tactics for Avoiding & Removing it][Garnett Technical Debt]
-1. Henrik Kniberg - [Good and Bad Technical Debt]
+A few questions appear: how do you know when there is too much debt? how much effort is used for paying the interest? As we [Cannot Measure Productivity], we also can't measure how much is our productivity affected by existing debt. However, working with estimates is good enough in most cases. The programmers know the state of the code base and how complicated is to add features to the system compared to how complicated it should be (the difference here is the interest).
 
-[1]: http://c2.com/doc/oopsla92.html "The WyCash Portfolio Management System"
-[2]: http://c2.com/cgi/wiki?WardExplainsDebtMetaphor "Ward Explains Debt Metaphor"
-[3]: http://martinfowler.com/bliki/TechnicalDebt.html "Technical Debt"
+This is an idea you can try. Ask the programmers from your team to give a score on a scale from 1 to 10 for the current state of the code base, 1 meaning that extremely high amounts of debt accumulated in the system and 10 that no or insignificant debt exists. The goal would be for your system to score 9 (going to extremes isn't helpful either). Repeat this experiment from time to time, ideally at each retrospective. If the score reaches 7 or below dedicate 1-2 sprints to fixing the debt until the score goes back to 9.
+
+There's also the question of how to prioritize the technical debt stories in order to fix the debt with a higher impact on productivity first. (?)
+
+Technical debt vanishes when the system is retired.
+
+## Further Reading
+
+1. Ward Cunningham  - [The WyCash Portfolio Management System]
+1. Ward Cunningham  - [Ward Explains Debt Metaphor]
+1. Martin Fowler    - [Technical Debt][Fowler Technical Debt]
+1. Martin Fowler    - [Technical Debt Quadrant]
+1. Martin Fowler    - [Design Stamina Hypothesis]
+1. Martin Fowler    - [Design Payoff Line]
+1. Martin Fowler    - [Estimated Interest]
+1. Martin Fowler    - [Cannot Measure Productivity]
+1. Uncle Bob        - [A Mess is not a Technical Debt]
+1. Steve McConnell  - [Technical Debt][McConnell Technical Debt]
+1. Henrik Kniberg   - [Good and Bad Technical Debt]
+1. Henrik Kniberg   - [The Solution to Technical Debt]
+1. Eric Allman      - [Managing Technical Debt]
+1. Wikipedia        - [Broken Windows Theory]
+
+[The WyCash Portfolio Management System]: http://c2.com/doc/oopsla92.html
+[Ward Explains Debt Metaphor]: http://c2.com/cgi/wiki?WardExplainsDebtMetaphor
+[Fowler Technical Debt]: http://martinfowler.com/bliki/TechnicalDebt.html "Technical Debt"
 [Technical Debt Quadrant]: http://martinfowler.com/bliki/TechnicalDebtQuadrant.html
 [Design Stamina Hypothesis]: http://martinfowler.com/bliki/DesignStaminaHypothesis.html
+[Design Payoff Line]: http://martinfowler.com/bliki/DesignPayoffLine.html
+[Estimated Interest]: http://martinfowler.com/bliki/EstimatedInterest.html
 [A Mess is not a Technical Debt]: https://sites.google.com/site/unclebobconsultingllc/a-mess-is-not-a-technical-debt
-[Technical Debt]: http://www.construx.com/10x_Software_Development/Technical_Debt
+[McConnell Technical Debt]: http://www.construx.com/10x_Software_Development/Technical_Debt
 [Cannot Measure Productivity]: http://martinfowler.com/bliki/CannotMeasureProductivity.html
-[Garnett Technical Debt]: http://blogs.ripple-rock.com/SteveGarnett/2013/03/05/TechnicalDebtStrategiesTacticsForAvoidingRemovingIt.aspx
 [Good and Bad Technical Debt]: http://blog.crisp.se/2013/10/11/henrikkniberg/good-and-bad-technical-debt
+[The Solution to Technical Debt]: http://blog.crisp.se/2013/07/12/henrikkniberg/the-solution-to-technical-debt
+[Broken Windows Theory]: http://en.wikipedia.org/wiki/Broken_windows_theory
+[Managing Technical Debt]: http://queue.acm.org/detail.cfm?id=2168798
+[Analysis paralysis]: http://en.wikipedia.org/wiki/Analysis_paralysis
