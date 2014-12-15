@@ -26,6 +26,7 @@ Some links:
 - http://blog.crisp.se/2012/10/25/henrikkniberg/agile-product-ownership-in-a-nutshell
 - http://martinfowler.com/tags/project%20planning.html
 - http://blog.crisp.se/2009/09/29/henrikkniberg/1254176460000 (Cause-effect diagrams)
+- http://martinfowler.com/articles/newMethodology.html
 
 ## Coding Best Practices (Technical Debt)
 
