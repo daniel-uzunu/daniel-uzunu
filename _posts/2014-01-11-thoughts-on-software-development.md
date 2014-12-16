@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Thoughts on Software Development"
-date:   2014-01-11 19:00:00
+date:   2014-01-11
 categories: Software Development
 ---
 Software use is growing at an explosive rate. In the latest years it reached peaks that couldn't be imagined 20 years ago. Now it is present basically everywhere. Still there a lot of things to be improved in the way we approach software projects. It is time to let go to habits that are standing in our way of reaching our best.
