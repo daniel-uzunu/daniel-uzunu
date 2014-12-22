@@ -11,6 +11,7 @@ Using a separate artefact for the model that is shared between the business laye
 - http://programmers.stackexchange.com/questions/140999/application-layer-vs-domain-layer
 - http://www.littlehart.net/atthekeyboard/2007/04/27/fat-models-skinny-controllers/
 - http://weblog.jamisbuck.org/2006/10/18/skinny-controller-fat-model
+- http://www.oracle.com/technetwork/java/dataaccessobject-138824.html
 
 ## Agile Software Development
 
@@ -27,6 +28,7 @@ Some links:
 - http://martinfowler.com/tags/project%20planning.html
 - http://blog.crisp.se/2009/09/29/henrikkniberg/1254176460000 (Cause-effect diagrams)
 - http://martinfowler.com/articles/newMethodology.html
+- http://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html (Uncle Bob - TDD)
 
 ## Coding Best Practices (Technical Debt)
 
@@ -50,3 +52,7 @@ I know that it is very hard to measure these things accurately, but I am curious
 - https://docs.google.com/document/d/1aXs1tpwzPjW9MdsG5dI7clNFyYayFBkcXwRDo-qvbIk/mobilebasic?viewopt=127
 - http://channel9.msdn.com/Blogs/Charles/A-Conversation-with-Bjarne-Stroustrup-Carl-Hewitt-and-Dave-Ungar
 - http://doc.akka.io/docs/akka/snapshot/scala/howto.html (HowTo: Common Patterns — Akka Documentation)
+
+## Random Ideas
+
+Telling beginners that it is easy to build software is like teaching someone how to build a dog house and then letting him to build a sky scrapper. This is bound to fail. When you build tools, it is important to design them so that it is easy for professionals two work with them, not for beginners to pick them up. Or maybe we need both, but we should advertise them as such. I never saw Lego pieces being advertised for building a real house.
