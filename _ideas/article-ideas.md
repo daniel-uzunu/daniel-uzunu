@@ -56,3 +56,5 @@ I know that it is very hard to measure these things accurately, but I am curious
 ## Random Ideas
 
 Telling beginners that it is easy to build software is like teaching someone how to build a dog house and then letting him to build a sky scrapper. This is bound to fail. When you build tools, it is important to design them so that it is easy for professionals two work with them, not for beginners to pick them up. Or maybe we need both, but we should advertise them as such. I never saw Lego pieces being advertised for building a real house.
+
+Uncle Bob, Open-Closed Principle: http://www.objectmentor.com/resources/articles/ocp.pdf
