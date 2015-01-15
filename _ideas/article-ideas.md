@@ -4,6 +4,8 @@
 
 In this article, I would like to write about how to layer your application (what are layers, how to use them). I would also like to touch system design topics, e.g. micro-services. I should add concepts like scalability and logging to the mix.
 
+To read about docker.
+
 Using a separate artefact for the model that is shared between the business layer and the data layer.
 
 - http://martinfowler.com/articles/microservices.html
