@@ -9,11 +9,27 @@ tags:
 - web services
 ---
 
-[Enterprise Integration Using REST]:
+## Questions I want to answer in this article
 
-- jjh
+- What is REST and which are its advantages / disadvantages
+- HTTP: verbs, status codes, headers...
+- guidelines for resource paths
+- filtering, sorting, paging
+- multiple actions on the same resource
+- HATEOAS; links to related resources
+- data formats: json,  xml
+- schema?
 
-[REST CookBook]:
+## Things I'll probably move to another article
 
+- HTTP is a request / response protocol but the client of a HTTP service doesn't have to be synchronous (blocking a thread until the response comes). The same is true for server side architectures: we don't need to process requests synchronously and block while waiting for other services to respond (databases, REST services). We can even use queues in order to decouple from the service we are calling.
+- It would also be interesting to read about ways to come up with the architecture for a system; thinking about the constraints of the system; the role of coding standards when developing a system (this will probably be a separate article).
+
+[Enterprise Integration Using REST]
+
+[REST CookBook]
+
+[Fielding about REST]: http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 [Enterprise Integration Using REST]: http://martinfowler.com/articles/enterpriseREST.html
 [REST CookBook]: http://restcookbook.com/
+[HTTP Options]: http://zacstewart.com/2012/04/14/http-options-method.html
