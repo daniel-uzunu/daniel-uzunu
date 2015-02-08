@@ -19,6 +19,8 @@ tags:
 - HATEOAS; links to related resources
 - data formats: json,  xml
 - schema?
+- HTTP status codes and how they should be used. errors.
+- response body for errors
 
 ## Things I'll probably move to another article
 
