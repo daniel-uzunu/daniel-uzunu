@@ -44,6 +44,10 @@ I would like to understand the principles of REST better and how it applies to v
 
 - https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
 
+## No Estimates
+
+- http://zuill.us/WoodyZuill/2012/12/10/no-estimate-programming-series-intro-post/
+
 ## Metrics for Quality, Productivity, Technical Debt, Interest Being Paid
 
 I know that it is very hard to measure these things accurately, but I am curious if there are things that can be done. One major issue with software is that we cannot measure productivity. But maybe there are good enough estimates.
