@@ -33,6 +33,10 @@ Usefull links:
 - [REST CookBook]
 - [HTTP Options]
 - [Gist for REST links]
+- [Martin Fowler - Richardson Maturity Model]
+- [Richardson - RESTfull Web Services]
+- [Richardson - RESTfull Web APIs]
+- [API Example Using REST]
 
 [Fielding about REST]: http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 [Enterprise Integration Using REST]: http://martinfowler.com/articles/enterpriseREST.html
