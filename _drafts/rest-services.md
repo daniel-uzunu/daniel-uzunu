@@ -39,3 +39,7 @@ Usefull links:
 [REST CookBook]: http://restcookbook.com/
 [HTTP Options]: http://zacstewart.com/2012/04/14/http-options-method.html
 [Gist for REST links]: https://gist.github.com/miyagawa/1912431
+[Martin Fowler - Richardson Maturity Model]: http://martinfowler.com/articles/richardsonMaturityModel.html
+[Richardson - RESTfull Web Services]: https://books.google.ro/books?id=XUaErakHsoAC&printsec=frontcover&dq=inauthor:%22Leonard+Richardson%22&hl=en&sa=X&ei=1PkFVaedGsHjO5aCgTg&ved=0CC4Q6AEwAg#v=onepage&q&f=false
+[Richardson - RESTfull Web APIs]: https://books.google.ro/books?id=ZXDGAAAAQBAJ&printsec=frontcover&dq=inauthor:%22Leonard+Richardson%22&hl=en&sa=X&ei=1PkFVaedGsHjO5aCgTg&ved=0CDoQ6AEwBA#v=onepage&q&f=false
+[API Example Using REST]: http://thereisnorightway.blogspot.ro/2012/05/api-example-using-rest.html
