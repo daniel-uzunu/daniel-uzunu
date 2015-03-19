@@ -59,6 +59,12 @@ I know that it is very hard to measure these things accurately, but I am curious
 - http://channel9.msdn.com/Blogs/Charles/A-Conversation-with-Bjarne-Stroustrup-Carl-Hewitt-and-Dave-Ungar
 - http://doc.akka.io/docs/akka/snapshot/scala/howto.html (HowTo: Common Patterns — Akka Documentation)
 
+## On Programming Languages and OOP
+
+- http://www.huffingtonpost.com/quora/why-do-so-many-software-e_b_6833206.html
+- http://www.quora.com/Was-object-oriented-programming-a-failure/answer/Michael-O-Church
+- https://michaelochurch.wordpress.com/2012/04/13/java-shop-politics/
+
 ## Random Ideas
 
 Telling beginners that it is easy to build software is like teaching someone how to build a dog house and then letting him to build a sky scrapper. This is bound to fail. When you build tools, it is important to design them so that it is easy for professionals two work with them, not for beginners to pick them up. Or maybe we need both, but we should advertise them as such. I never saw Lego pieces being advertised for building a real house.
