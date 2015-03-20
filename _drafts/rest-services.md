@@ -37,6 +37,7 @@ Usefull links:
 - [Richardson - RESTfull Web Services]
 - [Richardson - RESTfull Web APIs]
 - [API Example Using REST]
+- [][http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven]
 
 [Fielding about REST]: http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 [Enterprise Integration Using REST]: http://martinfowler.com/articles/enterpriseREST.html
