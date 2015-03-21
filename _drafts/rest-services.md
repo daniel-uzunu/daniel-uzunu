@@ -38,6 +38,7 @@ Usefull links:
 - [Richardson - RESTfull Web APIs]
 - [API Example Using REST]
 - [REST APIs Must Be Hypertext Driven](http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven)
+- [How I Explained REST to My Wife](http://www.looah.com/source/view/2284)
 
 [Fielding about REST]: http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 [Enterprise Integration Using REST]: http://martinfowler.com/articles/enterpriseREST.html
