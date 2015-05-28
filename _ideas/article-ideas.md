@@ -59,6 +59,9 @@ I know that it is very hard to measure these things accurately, but I am curious
 - http://channel9.msdn.com/Blogs/Charles/A-Conversation-with-Bjarne-Stroustrup-Carl-Hewitt-and-Dave-Ungar
 - http://doc.akka.io/docs/akka/snapshot/scala/howto.html (HowTo: Common Patterns — Akka Documentation)
 
+- https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a
+- https://medium.com/javascript-scene/how-to-fix-the-es6-class-keyword-2d42bb3f4caf
+
 ## On Programming Languages and OOP
 
 - http://www.huffingtonpost.com/quora/why-do-so-many-software-e_b_6833206.html
