@@ -11,8 +11,8 @@ def func(a: Int, b: Int): Int = a + b
 
 def func(a: Int, b: Int) = a + b
 
-// functions returning Unit
-def f() { // deprecated
+// functions that return the Unit value ()
+def f() { // deprecated - procedure syntax
     println("ABC")
 }
 
@@ -22,6 +22,8 @@ def g(): Unit = {
 
 def h() = println("ABC") // return type should always be specified for public methods
 {% endhighlight %}
+
+## By-name Parameters
 
 In Scala, function parameter can be of two types: by-name and by-value.
 
@@ -33,6 +35,8 @@ func {
     3
 }
 {% endhighlight %}
+
+## Named parameters and default values
 
 ## Topics
 

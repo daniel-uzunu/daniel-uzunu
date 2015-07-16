@@ -1,15 +1,26 @@
 #!/usr/bin/env scala
 
+case class Person1(name: String, age: Int, id: Option[String] = None)
+
+val person1 = Person1("John Doe", 25)
+println(person1)
+val copy = person1.copy(id = Some("sss"))
+println(copy)
+
 import scala.annotation.tailrec
 
-case class Person(name: String, age: Int)
+def namedParams(a: String, b: Int = 0) = println(a, b)
+
+namedParams("ui", b = 3)
+
+case class Person(name: String, age: Int = 0)
 
 val person = Person(
     name = "John Doe",
     age = 37
 )
 
-println(person.name)
+println(person)
 
 println("###  generate all permutations of a set ###")
 
