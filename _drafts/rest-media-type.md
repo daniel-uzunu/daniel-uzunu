@@ -17,3 +17,4 @@ html like
 link rel='self' href='/user/23'
 field name='givenName' value='John'
 field name='familyName' value='Doe'
+field name='comments'
