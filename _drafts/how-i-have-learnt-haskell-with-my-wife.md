@@ -189,3 +189,147 @@ Ok, modules loaded: Main.
 *Main> i
 12
 {% endhighlight %}
+
+## Lesson #2
+
+In the second lesson, we learnt about if, lists and tuples.
+
+{% highlight haskell %}
+doubleMe x = x + x
+doubleUs x y = x * 2 + y * 2
+finding x y = 2 * x < y
+doubleUs2 x y = doubleMe x + doubleMe y
+love x y z = x + y + z
+isEven x = mod x 2 == 0
+leaf x = if isEven x then x * 2 else x + 1
+min17 a b = if a < b then a else b
+maxT z q = if z > q then z else q
+
+compare2 a b =
+  if a == b
+    then 0
+    else if a < b
+      then -1
+      else 1
+{% endhighlight %}
+
+{% highlight haskell %}
+Prelude> 85 + 2
+87
+Prelude> let i = 3
+Prelude> i
+3
+Prelude> min 4 5
+4
+Prelude> :l learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> love 1 2 3
+6
+*Main> 3 / 2
+1.5
+*Main> div 3 2
+1
+*Main> mod 3 2
+1
+*Main> mod 5 3
+2
+*Main> div 5 3
+1
+*Main> :l learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> thomas 4
+True
+*Main> thomas 5
+False
+*Main> if 3 > 2 then 5 * 2 else 3
+10
+*Main> :l learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> leaf 3
+4
+*Main> leaf 10
+20
+*Main> :l learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> min17 20 1
+1
+*Main> :l
+:list  :load
+*Main> :l
+:list  :load
+*Main> :load learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> maxT 65 43
+65
+*Main> if True then if 3 > 2 then 4 else 3 else 2
+4
+*Main> if True then (if 3 > 2 then 4 else 3) else 2
+4
+*Main> compare 1 2
+LT
+*Main> compare 2 2
+EQ
+*Main> compare 2 3
+LT
+*Main> compare 2 1
+GT
+*Main> :load learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> compare2 1 2
+-1
+*Main> compare 2 2
+EQ
+*Main> compare2 2 2
+0
+*Main> compare2 2 2
+0
+*Main> compare2 2 1
+1
+*Main> [1, 2, 4]
+[1,2,4]
+*Main> ["a", "b"]
+["a","b"]
+*Main> ["z", "l", "qw", "cvfder"]
+["z","l","qw","cvfder"]
+*Main> let l = [1, 2, 4]
+*Main> l ++ [2, 1, 10]
+[1,2,4,2,1,10]
+*Main> "hello" ++ " " ++ "babe"
+"hello babe"
+*Main> ['a', 'b']
+"ab"
+*Main> head l
+1
+*Main> tail l
+[2,4]
+*Main> init l
+[1,2]
+*Main> last l
+4
+*Main> []
+[]
+*Main> reverse [2, 3]
+[3,2]
+*Main> (1, "hello")
+(1,"hello")
+*Main> (1, "hello", 1.2)
+(1,"hello",1.2)
+*Main> let c = (1, "hello", 1.2)
+*Main> fst (1, "as")
+1
+*Main> snd (1, "as")
+"as"
+*Main> head [1..]
+1
+*Main> head [1..]
+1
+*Main> take 6 [1..]
+[1,2,3,4,5,6]
+*Main> [1..]
+{% endhighlight %}
