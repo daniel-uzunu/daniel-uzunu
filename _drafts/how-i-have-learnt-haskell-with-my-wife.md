@@ -25,9 +25,6 @@ Prelude> -2
 -2
 Prelude> 3.4
 3.4
-Prelude> 1=1
-
-<interactive>:5:2: parse error on input `='
 Prelude> 1==1
 True
 Prelude> 1==2
@@ -333,3 +330,148 @@ EQ
 [1,2,3,4,5,6]
 *Main> [1..]
 {% endhighlight %}
+
+## Lesson #3
+
+As some time passed since the last lesson, we started by recapitulating what we did in the previous lessons. Then we learned some more things about lists. And then some things about types.
+
+{% highlight haskell %}
+sky x y = (x + y) / 2
+
+dante l n = sum (take n l)
+factorial n = product [1..n]
+sumN n = sum (take n [0,2..])
+{% endhighlight %}
+
+{% highlight haskell %}
+Prelude> :load learn-haskell.hs
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doubleMe 5
+10
+*Main> compare2 3 5
+-1
+*Main> isEven 2
+True
+*Main> [1, 2]
+[1,2]
+*Main> head [1, 2, 3]
+1
+*Main> tail ['a', 'e', 't', 'p']
+"etp"
+*Main> last ['a', 'e', 't', 'p']
+'p'
+*Main> length [9, 555]
+2
+*Main> [1, 2, 3] !! 2
+3
+*Main> [1, 2, 3] !! 0
+1
+*Main> [1, 2, 3] !! 1
+2
+*Main> sum [23, 44, 339]
+406
+*Main> product [4, -2, -90]
+720
+*Main> product [4, -2, -90, 2.3]
+1655.9999999999998
+*Main> [1, 2] > [2, 3]
+False
+*Main> [2, 3] == [2, 3]
+True
+*Main> take 2 [1, 2, 220]
+[1,2]
+*Main> drop 2 [1, 2, 220]
+[220]
+*Main> drop 3 [1, 2, 221]
+[]
+*Main> null []
+True
+Prelude> :reload
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> sky 7 8
+7.5
+Prelude> :reload
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> dante [2, 44, 21] 2
+46
+*Main> [1..10]
+[1,2,3,4,5,6,7,8,9,10]
+*Main> [1,3..10]
+[1,3,5,7,9]
+*Main> [1,3..50]
+[1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43,45,47,49]
+*Main> [1,5..50]
+[1,5,9,13,17,21,25,29,33,37,41,45,49]
+*Main> :reload
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> factorial 5
+120
+*Main> :reload
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> sumN 3
+12
+*Main> sumN 9
+90
+*Main> take 5 [1..]
+[1,2,3,4,5]
+*Main> take 5 [1, 3..]
+[1,3,5,7,9]
+*Main> take 10 [1, 3..]
+[1,3,5,7,9,11,13,15,17,19]
+*Main> :r
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> sumN 9
+72
+*Main> :t 5
+5 :: Num a => a
+*Main> :t 'a'
+'a' :: Char
+*Main> let i = 5
+*Main> :t i
+i :: Integer
+*Main> :t dante
+dante :: Num a => [a] -> Int -> a
+*Main> let x = 2.3
+*Main> :t x
+x :: Double
+*Main> :t doubleMe
+doubleMe :: Num a => a -> a
+*Main> :t doubleMe 5
+doubleMe 5 :: Num a => a
+*Main> :t True
+True :: Bool
+*Main> let l = [2, 4]
+*Main> :t l
+l :: [Integer]
+*Main> doubleMe 2.5
+5.0
+*Main> :reload
+[1 of 1] Compiling Main             ( learn-haskell.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doubleMe 2.5
+
+<interactive>:90:10:
+    No instance for (Fractional Integer) arising from the literal `2.5'
+    Possible fix: add an instance declaration for (Fractional Integer)
+    In the first argument of `doubleMe', namely `2.5'
+    In the expression: doubleMe 2.5
+    In an equation for `it': it = doubleMe 2.5
+*Main> doubleMe 2
+4
+{% endhighlight %}
+
+{% highlight haskell %}
+doubleMe :: Integer -> Integer
+doubleMe x = x + x
+{% endhighlight %}
+
+## Some material
+
+http://adriann.github.io/programming_problems.html
+http://programmers.stackexchange.com/questions/96504/how-can-i-teach-a-bright-person-with-no-programming-experience-how-to-program
