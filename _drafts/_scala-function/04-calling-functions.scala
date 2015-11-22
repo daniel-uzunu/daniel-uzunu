@@ -14,8 +14,4 @@ class Main {
   }
 }
 
-val m = Class.forName("Main$$anon$1$A").newInstance()
-
-m.asInstanceOf[Main].main(Array())
-
-
+new Main().main(Array())
