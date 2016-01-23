@@ -14,3 +14,9 @@ Properties of good names:
 
 - descriptive
 - short?
+
+## Naming Conventions
+
+A first step is to specify a naming scheme, see [Google's style guide][google-style-guide] for Java as an example. However, this is just an insignificant part of the problem.
+
+[google-style-guide]: https://google.github.io/styleguide/javaguide.html#s5-naming
